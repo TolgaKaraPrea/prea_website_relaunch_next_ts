@@ -1,34 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# PREA Website with NextJS
 
-## Getting Started
+## ⚖️ Github Guidelines
 
-First, run the development server:
+In order to keep an overview, a few simple rules must be observed when working with Git.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+1. "prod" branch (productive)
+   This branch is meant to publish the new release. Usually a build process listens to this branch, which then publishes the website.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This branch can only be published via a pull request.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+2. "staging" branch (test)
+   This branch is intended to present the new release to product owners, managers and others. Usually a build process listens to this branch, which publishes this staging under a subdomain.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+This branch can only be published via pull request.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+3. "dev" branch (development)
+   This branch is intended to merge all features and hotfixes and to test them online. Usually a build process listens to this branch, which then publishes the test page under a subdomain.
 
-## Learn More
+Everyone is allowed to push into this branch.
 
-To learn more about Next.js, take a look at the following resources:
+4. Feature branches
+   Each feature branch must be identified as such.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The prefix is "feature/“ followed by the “feature name” also "feature/[feature name]"
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+5. Hotfix branches
+   Each hotfix branch must be identified as such.
 
-## Deploy on Vercel
+The prefix is "hotfix/“ followed by the “hotfix name” also "hotfix/[hotfix name]"
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# Storybook (Design System, Component Documentation)
+[🌐 Public Domain](https://preaestate.github.io/prea_website_relaunch_next/)

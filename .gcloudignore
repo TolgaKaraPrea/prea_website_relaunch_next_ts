@@ -1,0 +1,12 @@
+# Ignore files
+.git
+.gitignore
+.env*
+package-lock.json
+
+# Ignore these folders => not copied to GAE
+/.idea
+/.github
+/k8s
+/__*
+/node_modules
