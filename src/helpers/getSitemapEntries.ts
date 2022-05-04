@@ -1,6 +1,5 @@
 import { getSiteURL } from "../constant/getSiteURL";
 import { isBrowser } from "./isBrowser";
-import { allLinks } from "../constant";
 import { formatUrlNormalNameCase } from "./formatNormalCase";
 
 function xml2json(xml) {
@@ -13,17 +12,17 @@ function xml2json(xml) {
         obj["@attributes"][attribute.nodeName] = attribute.nodeValue;
       }
     }
-  } else if (xml.nodeType == 3) {
+  } else if (xml.nodeType === 3) {
     obj = xml.nodeValue;
   }
   if (xml.hasChildNodes()) {
     for (let i = 0; i < xml.childNodes.length; i++) {
       let item = xml.childNodes.item(i);
       let nodeName = item.nodeName;
-      if (typeof obj[nodeName] == "undefined") {
+      if (typeof obj[nodeName] === "undefined") {
         obj[nodeName] = xml2json(item);
       } else {
-        if (typeof obj[nodeName].push == "undefined") {
+        if (typeof obj[nodeName].push === "undefined") {
           let old = obj[nodeName];
           obj[nodeName] = [];
           obj[nodeName].push(old);
@@ -36,7 +35,7 @@ function xml2json(xml) {
 }
 
 function getWorkableArrayOfUrls(sitemapEntries) {
-  let workableArrays = sitemapEntries.then(data => {
+  return sitemapEntries.then(data => {
     const workableLists = data.urlset.url.map(({ loc }) => {
       const url = loc["#text"];
       if (!url.includes("/en/") && !url.includes("/de/")) {
@@ -49,7 +48,6 @@ function getWorkableArrayOfUrls(sitemapEntries) {
     });
     return workableLists.filter(Boolean);
   });
-  return workableArrays;
 }
 
 async function getFormattedSitemapListObject(sitemapEntries) {

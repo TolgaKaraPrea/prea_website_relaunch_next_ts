@@ -47,7 +47,9 @@
     "no-empty-function": "error",
     "prefer-const": "error",
     "@typescript-eslint/no-var-requires": "off",
+    "import/extensions": "off",
     "no-use-before-define": "off",
+    "no-plusplus": "off",
     "require-jsdoc": [
       "warn",
       {
@@ -60,5 +62,12 @@
         }
       }
     ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
   }
 }
