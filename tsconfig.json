@@ -1,10 +1,11 @@
 {
   "compilerOptions": {
+    "rootDir": ".",
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
+    "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -12,9 +13,29 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "incremental": true,
     "jsx": "preserve",
-    "incremental": true
+    "baseUrl": "./src/",
+    "paths": {
+      "components/atoms": ["components/atoms/"],
+      "components/modules": ["components/modules/"],
+      "components/organisms": ["components/organisms/"],
+      "components/layout": ["components/layout/"],
+      "@/intl/pages": ["internationalization/page"],
+      "intl/components": ["../internationalization/components"],
+      "src/utils/styles": ["utils/styles"],
+      "src/content": ["content/"],
+      "@/image": ["components/assets/image"],
+      "@/placeholder": ["static/"],
+      "@/api": ["api/"],
+
+      "src/constant": ["constant/"],
+      "src/hooks": ["hooks/"],
+      "src/helper": ["helper/"],
+      "src/locales": ["locales/*"],
+      "src/types": ["types/*"]
+    }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/utils/javascript/createPlaceholder.js"],
-  "exclude": ["node_modules"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/500.js", "src/hooks/useChangeTheme.tsx", "src/content/aboutus/eventsPress/assets/index.js", "src/content/aboutus/workat/career/assets/index.ts", "src/context/CommonContext.js"],
+  "exclude": ["node_modules", "**/node_modules", "dist", "yarn.lock", "./build/*", "build", "./build/**/*"  ,".vscode" ],
 }
