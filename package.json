@@ -127,6 +127,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "7.28.0",
     "eslint-plugin-react-hooks": "4.3.0",
+    "html-webpack-plugin": "^5.5.0",
     "identity-obj-proxy": "^3.0.0",
     "inquirer-file-tree-selection-prompt": "^1.0.19",
     "jest": "^27.3.0",
