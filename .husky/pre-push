@@ -1,4 +1,6 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npx --no-install jest & npx --no-install eslint & npx --no-install prettier --write
+npx --no-install jest
+npx --no-install eslint
+npx --no-install prettier --write
