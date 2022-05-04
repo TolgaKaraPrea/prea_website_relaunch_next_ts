@@ -1,4 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npx --no-install jest & yarn lint --fix "$1" & yarn test "$1" & yarn format "$1"
+npx --no-install jest & npx --no-install eslint & npx --no-install prettier --write

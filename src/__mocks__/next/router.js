@@ -1,10 +1,10 @@
-const router = jest.genMockFromModule('next/router');
+const router = jest.genMockFromModule("next/router");
 
 const useRouter = () => ({
-  route: '/',
-  pathname: '',
-  query: '',
-  asPath: ''
+  route: "/",
+  pathname: "",
+  query: "",
+  asPath: ""
 });
 
 router.useRouter = useRouter;
