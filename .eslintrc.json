@@ -47,6 +47,7 @@
     "no-empty-function": "error",
     "prefer-const": "error",
     "@typescript-eslint/no-var-requires": "off",
+    "no-use-before-define": "off",
     "require-jsdoc": [
       "warn",
       {

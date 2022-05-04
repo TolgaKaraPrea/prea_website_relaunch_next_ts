@@ -1,6 +1,6 @@
 const { readdirSync } = require("fs");
-const filterDirectory = require("./filterDirectory");
 const { resolve } = require("path");
+const filterDirectory = require("./filterDirectory");
 
 const getDirectories = src => {
   const directories = readdirSync(resolve(__dirname, "..", "..", "src", src));
