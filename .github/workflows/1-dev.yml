@@ -1,0 +1,51 @@
+name: (Dev) Build and Test
+on:
+  pull_request:
+    branches:
+      - dev
+
+env:
+  WORDPRESS_GRAPHQL_ENDPOINT: ${{secrets.WORDPRESS_GRAPHQL_ENDPOINT}}
+  CONTACT_FORM_ENDPOINT: ${{secrets.CONTACT_FORM_ENDPOINT}}
+  RECAPTCHA_API_KEY: ${{secrets.RECAPTCHA_API_KEY}}
+  EMPLOYEE_DATA_ENDPOINT: ${{secrets.EMPLOYEE_DATA_ENDPOINT}}
+  NEXT_STRIPE_PUBLISHABLE_KEY: ${{secrets.NEXT_STRIPE_PUBLISHABLE_KEY}}
+  STRIPE_SECRET_KEY: ${{secrets.STRIPE_SECRET_KEY}}
+  DATABASE_URL: ${{secrets.DATABASE_URL}}
+  GOOGLE_CRED_TYPE: ${{secrets.GOOGLE_CRED_TYPE}}
+  GOOGLE_CRED_PROJECT_ID: ${{secrets.GOOGLE_CRED_PROJECT_ID}}
+  GOOGLE_CRED_PRIVATE_KEY_ID: ${{secrets.GOOGLE_CRED_PRIVATE_KEY_ID}}
+  GOOGLE_CRED_PRIVATE_KEY: ${{secrets.GOOGLE_CRED_PRIVATE_KEY}}
+  GOOGLE_CRED_CLIENT_EMAIL: ${{secrets.GOOGLE_CRED_CLIENT_EMAIL}}
+  GOOGLE_CRED_CLIENT_ID: ${{secrets.GOOGLE_CRED_CLIENT_ID}}
+  GOOGLE_CRED_AUTH_URI: ${{secrets.GOOGLE_CRED_AUTH_URI}}
+  GOOGLE_CRED_TOKEN_URI: ${{secrets.GOOGLE_CRED_TOKEN_URI}}
+  GOOGLE_CRED_AUTH_PROVIDER_X509_CERT_URL: ${{secrets.GOOGLE_CRED_AUTH_PROVIDER_X509_CERT_URL}}
+  GOOGLE_CRED_CLIENT_X509_CERT_URL: ${{secrets.GOOGLE_CRED_CLIENT_X509_CERT_URL}}
+
+jobs:
+  build-and-test:
+    name: (Dev) Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: Run yarn install
+        run: yarn install
+
+      - name: Run yarn lint
+        run: yarn lint
+
+      - name: Run Prisma Generate
+        run: yarn run prisma:generate
+
+      - name: Build app
+        run: yarn build
+#        env:
+#          WORDPRESS_GRAPHQL_ENDPOINT: ${{ secrets.WORDPRESS_GRAPHQL_ENDPOINT }}
+#          CONTACT_FORM_ENDPOINT: ${{secrets.CONTACT_FORM_ENDPOINT}}
+#          RECAPTCHA_API_KEY: ${{secrets.RECAPTCHA_API_KEY}}

@@ -9,4 +9,4 @@ export const bqSecrets = {
   token_uri: process.env.GOOGLE_CRED_TOKEN_URI,
   auth_provider_x509_cert_url: process.env.GOOGLE_CRED_AUTH_PROVIDER_X509_CERT_URL,
   client_x509_cert_url: process.env.GOOGLE_CRED_CLIENT_X509_CERT_URL
-}
+};

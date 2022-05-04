@@ -38,3 +38,7 @@ report.*
 
 # vercel
 .vercel
+
+# IDE configuration
+/.vscode
+/.idea

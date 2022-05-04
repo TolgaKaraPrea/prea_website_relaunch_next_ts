@@ -1,0 +1,55 @@
+# Author: Claas Gnerlich <claas.gnerlich@prea.eu>
+name: (Staging) Build and Deploy cloud app engine
+on:
+  push:
+    branches:
+      - staging
+
+env:
+  PROJECT_ID: ${{secrets.PROJECT_NAME}}
+  SERVICE_ACCOUNT_KEY: ${{secrets.SA_KEY}}
+
+  WORDPRESS_GRAPHQL_ENDPOINT: ${{secrets.WORDPRESS_GRAPHQL_ENDPOINT}}
+  CONTACT_FORM_ENDPOINT: ${{secrets.CONTACT_FORM_ENDPOINT}}
+  RECAPTCHA_API_KEY: ${{secrets.RECAPTCHA_API_KEY}}
+  EMPLOYEE_DATA_ENDPOINT: ${{secrets.EMPLOYEE_DATA_ENDPOINT}}
+  NEXT_STRIPE_PUBLISHABLE_KEY: ${{secrets.NEXT_STRIPE_PUBLISHABLE_KEY}}
+  STRIPE_SECRET_KEY: ${{secrets.STRIPE_SECRET_KEY}}
+  DATABASE_URL: ${{secrets.DATABASE_URL}}
+
+
+jobs:
+  build-and-test:
+    name: (Staging) Build and deploy cloud app engine
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: Set up gcloud
+        uses: google-github-actions/setup-gcloud@v0.2.0
+        with:
+          service_account_key: ${{env.SERVICE_ACCOUNT_KEY}}
+          project_id: ${{env.PROJECT_ID}}
+          export_default_credentials: true
+
+      - name: Run yarn install
+        run: yarn install
+
+      - name: Run yarn lint
+        run: yarn lint
+
+      - name: Run Prisma Generate
+        run: yarn run prisma:generate
+
+      - name: Build app
+        run: yarn build
+
+      - name: Copy app.yml
+        run: yarn cpx k8s/2-staging/app.yaml .
+
+      - name: (Re)build app enginge
+        run: gcloud app deploy app.yaml --stop-previous-version --promote --quiet

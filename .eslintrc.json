@@ -1,39 +1,62 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": ["eslint:recommended", "plugin:react/recommended", "airbnb", "plugin:@typescript-eslint/recommended", "prettier"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
     },
-    "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "airbnb",
-        "plugin:@typescript-eslint/recommended",
-        "prettier",
-        "prettier/react"
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "@typescript-eslint", "prettier"],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "tabWidth": 2,
+        "printWidth": 140,
+        "endOfLine": "auto",
+        "arrowParens": "avoid",
+        "trailingComma": "none",
+        "semi": true,
+        "singleQuote": false,
+        "bracketSpacing": true
+      }
     ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": "latest",
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react",
-        "@typescript-eslint",
-        "prettier"
+    "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
     ],
-    "rules": {
-      "prettier/prettier": [
-        "error",
-        {
-          "endOfLine": "lf",
-          "semi": false,
-          "singleQuote": false,
-          "tabWidth": 2,
-          "trailingComma": "es5"
+    "import/prefer-default-export": "off",
+    "react/react-in-jsx-scope": "off", // NextJS does it automatically
+    "react/jsx-props-no-spreading": "off",
+    "arrow-body-style": "off",
+    "eqeqeq": "error",
+    "no-console": "error",
+    "multiline-comment-style": "off",
+    "no-alert": "error",
+    "no-empty": "error",
+    "no-empty-function": "error",
+    "prefer-const": "error",
+    "require-jsdoc": [
+      "warn",
+      {
+        "require": {
+          "FunctionDeclaration": true,
+          "MethodDefinition": true,
+          "ClassDeclaration": true,
+          "ArrowFunctionExpression": true,
+          "FunctionExpression": true
         }
-      ]
-    }
+      }
+    ]
+  }
 }

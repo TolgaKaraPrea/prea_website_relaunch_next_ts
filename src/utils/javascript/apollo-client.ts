@@ -1,6 +1,6 @@
-const { PrismaClient } = require('@prisma/client');
+const { PrismaClient } = require("@prisma/client");
 let prisma;
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === "production") {
   let prisma = new PrismaClient();
 } else {
   // @ts-ignore
