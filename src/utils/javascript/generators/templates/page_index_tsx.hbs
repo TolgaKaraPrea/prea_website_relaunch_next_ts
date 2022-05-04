@@ -1,0 +1,42 @@
+import { useTranslations } from 'next-intl';
+
+import { Page {{#if hasSubNavigation}}, SubNavigation {{/if}} } from 'components/modules';
+import { {{formattedContentName}} } from 'src/content';
+import { useSubNavigationItems } from "src/hooks";
+
+import { {{#if isDarkMode}}darkTheme{{else}}lightTheme{{/if}} } from 'src/utils/styles';
+
+{{#if hasApollo}}import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';{{/if}}
+
+
+
+
+{{#if hasApollo}}
+const client = new ApolloClient({
+  uri: process.env.WORDPRESS_GRAPHQL_ENDPOINT,
+  cache: new InMemoryCache()
+});
+{{/if}}
+
+const {{formattedPageName}} = () => {
+const t = useTranslations();
+
+const meta = {title:t({{formattedLowerName}}I18n.metaTitle.id), description: t({{formattedLowerName}}I18n.metaDescription.id)}
+{{#if hasSubNavigation}}const subItems = useSubNavigationItems(t(subNavigationI18n.{{subNavParent}}.id));{{/if}}
+
+
+return (
+{{#if hasApollo}}<ApolloProvider client={client}>{{/if}}
+
+  <Page meta={meta} theme={ {{#if isDarkMode}}darkTheme{{else}}lightTheme{{/if}} }>
+    {{#if hasSubNavigation}}
+      <SubNavigation title={t(subNavigationI18n.{{subNavParent}}.id)} items={subItems} />
+    {{/if}}
+    <{{formattedContentName}} />
+  </Page>
+
+{{#if hasApollo}}</ApolloProvider>{{/if}}
+);
+};
+
+export default {{formattedPageName}};

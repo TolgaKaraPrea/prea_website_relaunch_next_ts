@@ -1,0 +1,14 @@
+import React from 'react'
+import * as S from './style'
+
+interface {{componentName}}Props {
+  test?:any;
+}
+
+export const {{componentName}}:React.FC<{{componentName}}Props> = ({test, ...props}) => {
+
+    return (
+      <S.{{componentName}}Wrapper> {props.children} </S.{{componentName}}Wrapper>
+    )
+
+  }
