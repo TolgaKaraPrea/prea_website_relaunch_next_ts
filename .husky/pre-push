@@ -1,6 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npx --no-install jest
-npx --no-install eslint
-npx --no-install prettier --write
+yarn run fix && yarn run lint:css && yarn run test:unit
