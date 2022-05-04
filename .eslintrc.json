@@ -12,7 +12,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint", "prettier"],
+  "plugins": ["react", "typescript", "@typescript-eslint", "prettier"],
   "rules": {
     "prettier/prettier": [
       "error",
@@ -46,6 +46,8 @@
     "no-empty": "error",
     "no-empty-function": "error",
     "prefer-const": "error",
+    "@typescript-eslint/no-var-requires": "off",
+    "no-use-before-define": "off",
     "require-jsdoc": [
       "warn",
       {

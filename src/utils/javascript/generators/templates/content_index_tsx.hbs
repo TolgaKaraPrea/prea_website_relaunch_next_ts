@@ -1,0 +1,24 @@
+import React from 'react';
+import { useTranslations } from 'next-intl';
+import { PageWrapper } from 'components/layout';
+{{#if addImportsOfAtoms}}import { Heading, Paragraph } from 'components/atoms'{{/if}}
+{{#each commonImports}}
+import { {{#if isArray }} {{#each name}}{{this}}{{/each}} {{else}}{{name}}{{/if}} } from '{{path}}'
+{{/each}}
+
+
+const {{formattedFileName}}Content: React.FC = () => {
+const t = useTranslations();
+
+return (
+<PageWrapper>
+
+{{#each arrOfComponents}}
+  <{{name}} />
+{{/each}}
+
+</PageWrapper>
+
+)};
+
+export default {{formattedFileName}}Content;
