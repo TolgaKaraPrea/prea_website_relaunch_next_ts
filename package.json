@@ -30,7 +30,7 @@
     "make:page": "plop --plopfile src/utils/javascript/generators/controllers/pageController.js",
     "test:build": "next lint & next build",
     "test": "jest --watch",
-    "test:unit": "jest --config jest.config.js --env=jsdom",
+    "test:unit": "jest --passWithNoTests",
     "placeholder": "node ./src/utils/javascript/createPlaceholder.js",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,md}\"",
     "update-translations": "extract-messages -l=de -o locales/de -d de --flat false \"internationalization/**/!(*.test).js\"",
