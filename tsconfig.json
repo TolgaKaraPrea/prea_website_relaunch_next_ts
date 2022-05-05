@@ -36,6 +36,15 @@
       "src/types": ["types/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/500.js", "src/hooks/useChangeTheme.tsx", "src/content/aboutus/eventsPress/assets/index.js", "src/content/aboutus/workat/career/assets/index.ts", "src/context/CommonContext.js"],
-  "exclude": ["node_modules", "**/node_modules", "dist", "yarn.lock", "./build/*", "build", "./build/**/*"  ,".vscode" ],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/pages/500.js",
+    "src/hooks/useChangeTheme.tsx",
+    "src/content/aboutus/eventsPress/assets/index.js",
+    "src/content/aboutus/workat/career/assets/index.ts",
+    "src/context/CommonContext.js"
+  ],
+  "exclude": ["node_modules", "**/node_modules", "dist", "yarn.lock", "./build/*", "build", "./build/**/*", ".vscode"]
 }

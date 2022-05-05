@@ -83,7 +83,7 @@ export const getSitemapEntries = () => {
   if (isBrowser) {
     dataFromXML = fetch(`${getSiteURL()}/sitemap.xml`)
       .then(response => response.text())
-      .then(str => isBrowser() && new window.DOMParser().parseFromString(str, "text/xml"))
+      .then(str => isBrowser && new window.DOMParser().parseFromString(str, "text/xml"))
       .then(data => {
         return xml2json(data);
       });

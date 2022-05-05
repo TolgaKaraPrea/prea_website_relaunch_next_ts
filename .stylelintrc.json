@@ -1,13 +1,8 @@
 {
   "processors": ["stylelint-processor-styled-components"],
-  "extends": [
-    "stylelint-config-recommended",
-    "stylelint-config-styled-components"
-  ],
+  "extends": ["stylelint-config-recommended", "stylelint-config-styled-components"],
 
-  "plugins": [
-    "stylelint-declaration-use-variable"
-  ],
+  "plugins": ["stylelint-declaration-use-variable"],
 
   "rules": {
     "color-no-invalid-hex": true,

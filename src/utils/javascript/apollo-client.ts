@@ -11,5 +11,6 @@ if (process.env.NODE_ENV === "production") {
   // @ts-ignore
   prisma = global.prisma;
 }
+console.log("hello");
 module.exports = prisma;
 export { prisma };
